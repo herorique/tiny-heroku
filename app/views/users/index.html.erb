@@ -1,0 +1,13 @@
+<h1>Users</h1>
+
+<ul>
+  <% @users.each_with_index do |user, index| %>
+    <li id="item_<%= index %>" >
+        <%= link_to user.name, user, class: 'title' %>&nbsp;&nbsp;
+        <%= link_to "Edit", edit_user_path(user) %>&nbsp;
+        <%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure?"} %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New User", new_user_path %>
